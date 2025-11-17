@@ -41,10 +41,10 @@ public class CV_INFORMATION {
     public String getPhone() {
         return Phone.get();
     }
-    public String Address() {
+    public String getAddress() {
         return Address.get();
     }
-    public String Ed_Qualification() {
+    public String getEd_Qualification() {
         return Ed_Qualification.get();
     }
     public String getSkills() {
@@ -61,7 +61,7 @@ public class CV_INFORMATION {
         return Name;
     }
 
-    public StringProperty EmailProperty() { return Email}
+    public StringProperty EmailProperty() { return Email; }
 
     public StringProperty PhoneProperty() {
         return Phone;
