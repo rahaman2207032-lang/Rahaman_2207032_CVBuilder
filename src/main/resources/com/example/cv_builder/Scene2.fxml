@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<BorderPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cv_builder.Scene2Controller">
    <center>
       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" translateY="30.0">
         <columnConstraints>
@@ -95,7 +95,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" text="Generate_CV" textFill="#4e89e1" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <Button mnemonicParsing="false" onAction="#SwitchScene3" text="Generate_CV" textFill="#4e89e1" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <GridPane.margin>
                   <Insets left="250.0" />
                </GridPane.margin>
@@ -103,14 +103,14 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <TextField promptText="Enter your name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField promptText="Phone" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField promptText="Address" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField promptText="Educational Qualifiactions" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField promptText="Skills" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField promptText="Previous Experience" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField promptText="Projects" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="Name" promptText="Enter your name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="Email" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="Phone" promptText="Phone" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="Address" promptText="Address" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="Ed_Qualification" promptText="Educational Qualifiactions" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="Skills" promptText="Skills" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="Work_experience" promptText="Previous Experience" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="Projects" promptText="Projects" GridPane.columnIndex="1" GridPane.rowIndex="8" />
          </children>
       </GridPane>
    </center>
