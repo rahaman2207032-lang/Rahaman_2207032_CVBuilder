@@ -31,4 +31,59 @@ public class CV_INFORMATION {
         this.Work_experience = new SimpleStringProperty(workExperience);
         this.Projects = new SimpleStringProperty(projects);
     }
+
+    public String getName() {
+        return Name.get();
+    }
+    public String getEmail() {
+        return Email.get();
+    }
+    public String getPhone() {
+        return Phone.get();
+    }
+    public String Address() {
+        return Address.get();
+    }
+    public String Ed_Qualification() {
+        return Ed_Qualification.get();
+    }
+    public String getSkills() {
+        return Skills.get();
+    }
+    public String getWork_experience() {
+        return Work_experience.get();
+    }
+    public String getProjects() {
+        return Projects.get();
+    }
+
+    public StringProperty nameProperty() {
+        return Name;
+    }
+
+    public StringProperty EmailProperty() { return Email}
+
+    public StringProperty PhoneProperty() {
+        return Phone;
+    }
+
+    public StringProperty AddressProperty() {
+        return Address;
+    }
+
+    public StringProperty Ed_QualificationsProperty() {
+        return Ed_Qualification;
+    }
+
+    public StringProperty SkillsProperty() {
+        return Skills;
+    }
+
+    public StringProperty Work_experienceProperty() {
+        return Work_experience;
+    }
+
+    public StringProperty ProjectsProperty() {
+        return Projects;
+    }
 }
