@@ -1,6 +1,5 @@
 package com.example.cv_builder;
 
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -10,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -37,6 +35,7 @@ public class Scene2Controller {
     TextField Projects;
 
     private ObservableList<CV_INFORMATION> CV_INFORMATION = FXCollections.observableArrayList();
+
     @FXML
     public void Add() {
         CV_INFORMATION.add(new CV_INFORMATION(Name.getText(),Email.getText(), Phone.getText(), Address.getText(),Ed_Qualification.getText(),Skills.getText(),Work_experience.getText(),Projects.getText()));
@@ -53,6 +52,12 @@ public class Scene2Controller {
         if(isEmpty(Projects)) return;
         if(isEmpty(Ed_Qualification)) return;
 
+
+        com.example.cv_builder.CV_INFORMATION currentCV =
+                CV_INFORMATION.get(CV_INFORMATION.size() - 1);
+
+
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Scene3.fxml"));
         Parent root = (Parent) loader.load();
 
@@ -67,6 +72,11 @@ public class Scene2Controller {
         stage.show();
 
     }
+
+
+
+
+
     private boolean isEmpty(TextField tf){
         if(tf.getText().trim().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
