@@ -17,8 +17,9 @@ import java.io.IOException;
 public class Scene2Controller {
     private Stage stage;
     private Scene scene;
-   @FXML
-   TextField Name;
+
+    @FXML
+    TextField Name;
     @FXML
     TextField Email;
     @FXML
@@ -38,10 +39,19 @@ public class Scene2Controller {
 
     @FXML
     public void Add() {
-        CV_INFORMATION.add(new CV_INFORMATION(Name.getText(),Email.getText(), Phone.getText(), Address.getText(),Ed_Qualification.getText(),Skills.getText(),Work_experience.getText(),Projects.getText()));
+        CV_INFORMATION.add(new CV_INFORMATION(
+                Name.getText(),
+                Email.getText(),
+                Phone.getText(),
+                Address.getText(),
+                Ed_Qualification.getText(),
+                Skills.getText(),
+                Work_experience.getText(),
+                Projects.getText()
+        ));
     }
 
-    public void SwitchScene3 (ActionEvent event) throws IOException {
+    public void SwitchScene3(ActionEvent event) throws IOException {
         Add();
         if(isEmpty(Name)) return;
         if(isEmpty(Email)) return;
@@ -52,17 +62,22 @@ public class Scene2Controller {
         if(isEmpty(Projects)) return;
         if(isEmpty(Ed_Qualification)) return;
 
-
+        // Get the current CV
         com.example.cv_builder.CV_INFORMATION currentCV =
                 CV_INFORMATION.get(CV_INFORMATION.size() - 1);
 
-
+        // Save to database
+        int savedId = DB.saveCV(currentCV);
+        if (savedId > 0) {
+            System.out.println("✅ CV saved successfully with ID: " + savedId);
+        } else {
+            System.err.println("❌ Failed to save CV to database");
+        }
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Scene3.fxml"));
         Parent root = (Parent) loader.load();
 
         GenerateController controller = loader.getController();
-
         controller.loadData(CV_INFORMATION);
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -70,24 +85,17 @@ public class Scene2Controller {
         stage.setTitle("Your CV");
         stage.setScene(scene);
         stage.show();
-
     }
-
-
-
-
 
     private boolean isEmpty(TextField tf){
         if(tf.getText().trim().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Warning");
             alert.setHeaderText(null);
-            alert.setContentText("Enter  all the required Informations");
+            alert.setContentText("Enter all the required Informations");
             alert.showAndWait();
             return true;
         }
         return false;
-}
-
-
+    }
 }

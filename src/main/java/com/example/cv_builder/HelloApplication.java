@@ -3,16 +3,16 @@ package com.example.cv_builder;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-
     @Override
     public void start(Stage stage) throws IOException {
-        com.example.dbdemo.DB.initDatabase();
+        // Initialize database when application starts
+        DB.initDatabase();
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Hello!");
@@ -21,8 +21,15 @@ public class HelloApplication extends Application {
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-
-
     }
 
+    @Override
+    public void stop() {
+        // Close database connection when application closes
+        DB.closeConnection();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
 }

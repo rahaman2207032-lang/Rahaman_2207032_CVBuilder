@@ -27,4 +27,15 @@ public class HelloController {
         stage.show();
 
     }
+    @FXML
+    public void openDatabaseManagement(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Scene4.fxml"));
+        stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Database Management");
+        stage.setWidth(800);
+        stage.setHeight(900);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
