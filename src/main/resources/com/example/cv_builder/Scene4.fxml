@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="20" style="-fx-background-color: #f5f5f5; -fx-padding: 30;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cv_builder.Scene4Controller">
+
+
+    <HBox alignment="CENTER" style="-fx-background-color: #2c3e50; -fx-padding: 20; -fx-background-radius: 10;">
+        <Label text="🗄️ Database Management Panel" textFill="white">
+            <font>
+                <Font name="System Bold" size="28" />
+            </font>
+        </Label>
+    </HBox>
+
+
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="📋 View All CVs" />
+        <Button onAction="#handleFetchAll" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20;" text="Fetch All CVs" />
+        <ScrollPane fitToWidth="true" prefHeight="200">
+            <TextArea fx:id="allCVsArea" editable="false" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;" wrapText="true" />
+        </ScrollPane>
+    </VBox>
+
+
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="🔍 Fetch CV by ID" />
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="Enter ID:" />
+            <TextField fx:id="fetchIdField" prefWidth="100" promptText="e.g., 1" />
+            <Button onAction="#handleFetchById" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20;" text="Fetch CV" />
+        </HBox>
+        <TextArea fx:id="fetchResultArea" editable="false" prefHeight="150" style="-fx-font-family: 'Courier New'; -fx-font-size: 12px;" wrapText="true" />
+    </VBox>
+
+
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="✏️ Update CV" />
+
+        <GridPane hgap="10" vgap="10">
+            <Label text="CV ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="updateIdField" promptText="Enter ID" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="updateNameField" promptText="New Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="updateEmailField" promptText="New Email" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <TextField fx:id="updatePhoneField" promptText="New Phone" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <TextField fx:id="updateAddressField" promptText="New Address" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+            <Label text="Education:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <TextField fx:id="updateEducationField" promptText="New Education" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <Label text="Skills:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <TextField fx:id="updateSkillsField" promptText="New Skills" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+            <Label text="Experience:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <TextField fx:id="updateExperienceField" promptText="New Experience" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+            <Label text="Projects:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+            <TextField fx:id="updateProjectsField" promptText="New Projects" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <HBox spacing="10">
+            <Button onAction="#handleLoadForUpdate" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20;" text="Load CV Data" />
+            <Button onAction="#handleUpdate" style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20;" text="Update CV" />
+        </HBox>
+    </VBox>
+
+
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="🗑️ Delete CV" />
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label text="Enter ID:" />
+            <TextField fx:id="deleteIdField" prefWidth="100" promptText="e.g., 1" />
+            <Button onAction="#handleDelete" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20;" text="Delete CV" />
+        </HBox>
+        <Label fx:id="deleteResultLabel" style="-fx-font-size: 14px;" />
+    </VBox>
+
+
+    <HBox alignment="CENTER">
+        <Button onAction="#handleBackToHome" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 30;" text="⬅️ Back to Home" />
+    </HBox>
+
+</VBox>

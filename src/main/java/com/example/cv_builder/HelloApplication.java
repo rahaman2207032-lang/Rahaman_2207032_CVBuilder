@@ -10,7 +10,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        // Initialize database when application starts
+
         DB.initDatabase();
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void stop() {
-        // Close database connection when application closes
+
         DB.closeConnection();
     }
 

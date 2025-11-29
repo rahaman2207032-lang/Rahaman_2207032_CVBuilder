@@ -62,11 +62,11 @@ public class Scene2Controller {
         if(isEmpty(Projects)) return;
         if(isEmpty(Ed_Qualification)) return;
 
-        // Get the current CV
+
         com.example.cv_builder.CV_INFORMATION currentCV =
                 CV_INFORMATION.get(CV_INFORMATION.size() - 1);
 
-        // Save to database
+
         int savedId = DB.saveCV(currentCV);
         if (savedId > 0) {
             System.out.println("✅ CV saved successfully with ID: " + savedId);
